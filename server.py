@@ -19,8 +19,10 @@ def emo_det():
     
 
     # Return a formatted string with the answer
-    return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}.
-    " The dominant emotion is <b>{}</b>.".format(anger, disgust,fear,joy,sadness,dominant)
+    if anger is None:
+        return "Invalid text! Please try again!"
+    else:
+        return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is <b>{}</b>.".format(anger, disgust,fear,joy,sadness,dominant)
 @app.route("/")
 def render_index_page():
     return render_template('index.html')
